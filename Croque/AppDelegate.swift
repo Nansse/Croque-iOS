@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Lunch.all[1].answer = 2
         
-        setEntryPoint(to: .home)
+        setEntryPoint(to: .login)
         
         return true
         

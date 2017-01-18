@@ -9,6 +9,7 @@
 import UIKit
 
 typealias Colors = (dark: UIColor, light: UIColor)
+let serverURL = "http://agepolysrv1.epfl.ch:8043"
 
 class CRColor {
     

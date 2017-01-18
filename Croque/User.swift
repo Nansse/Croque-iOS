@@ -7,14 +7,13 @@
 //
 
 import Foundation
+import RealmSwift
 
-
-struct User: Equatable {
+class User {
     var id: Int = 0
-    var firstName: String
-    var lastName: String
+    var firstName: String = ""
+    var lastName: String = ""
     var sentence: Sentence
-    var tel: Int?
     var lunches: [Lunch] {
         return Lunch.all.filter{$0.participants.filter{$0 == self}.count == 0}
     }
@@ -27,7 +26,7 @@ struct User: Equatable {
         return sentence.description
     }
     
-    init() {
+    required init() {
         firstName = "Alain"
         lastName = "Turing"
         sentence = Sentence()
@@ -45,4 +44,10 @@ struct User: Equatable {
 
 func == (lhs: User, rhs: User) -> Bool {
     return lhs.id == rhs.id
+}
+
+
+class Test: Object {
+    dynamic var a: String = ""
+    dynamic var b: Int = 123
 }

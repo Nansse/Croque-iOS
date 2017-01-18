@@ -29,7 +29,6 @@ class HomeFounded: UIViewController {
         var allCards = [ContactCardView]()
         let width = scrollView.frame.width
         for i in 0..<participants.count {
-            print(scrollView.frame)
             let oldPosition = i != 0 ? allCards[i-1].frame.origin.y + allCards[i-1].frame.height : -15
             let newCard = ContactCardView(frame: CGRect(x: 0, y: oldPosition + 15, width: width, height: 67))
             newCard.setupWith(user: participants[i])

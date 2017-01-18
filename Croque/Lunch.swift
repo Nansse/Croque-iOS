@@ -43,4 +43,16 @@ struct Lunch {
         self.participants.append(User())
         self.participants.append(User())
     }
+    
+    init(json: JSON) {
+        question = json["body"].string!
+        answers = [String]()
+        
+        for (_,answer):(String, JSON) in json["answers"] {
+            answers.append(answer["body"].string!)
+        }
+    }
+    
+    
+ 
 }

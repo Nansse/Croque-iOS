@@ -18,10 +18,6 @@ class LunchNavigationController: UINavigationController, UIGestureRecognizerDele
         setBorderColor(to: UIColor(hex: 0xE2E2E2))
         setupTitle()
         
-        let answers = ["Mon pére est un pharmacien", "Pourquoi pas", "Je ne te crois pas avec tes histoires", "Si je dis oui et que tu dis non on ne sera pas ensemble", "En effet mon frére", "C'est vraiment trop stylé", "ou pas", "Dis Maman ?"]
-        
-        lunch = Lunch(question: "Quel superpouvoir voudrais-tu le plus avoir ?", answers: answers)
-        
         
         // Activate gesture frome left to right to go back
         interactivePopGestureRecognizer?.delegate = self;

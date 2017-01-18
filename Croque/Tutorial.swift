@@ -7,15 +7,32 @@
 //
 
 import UIKit
+import Alamofire
 
 class Tutorial: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        signup()
+        
         // Do any additional setup after loading the view.
     }
-
+    
+    private func signup() {
+        
+        let parameters: Parameters = [
+            "email": "gauthier@de-chezelles.com",
+            "firstname": "Gauthier",
+            "lastname": "de Chezelles",
+            "password": "admin"
+        ]
+        Alamofire.request(serverURL + "/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: {response in
+            let json = JSON(response.result.value)
+            print(json)
+        })
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

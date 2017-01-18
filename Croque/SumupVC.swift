@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SumupVC: UIViewController {
     
@@ -69,11 +70,24 @@ class SumupVC: UIViewController {
     }
     
     @IBAction func validateWasPressed(_ sender: AnyObject) {
-        print(navigationController!.parent)
         if let home = presentingViewController as? Home {
-            print("Hey")
             home.presentInContainer(viewController: home.waitingVC)
         }
         navigationController?.dismiss(animated: true, completion: {})
+    }
+    
+    
+    private func sendLunchRequest() {
+        guard let lunch = (navigationController as? LunchNavigationController)?.lunch else { return }
+        
+        let parameters: Parameters = [
+            "date": lunch.date,
+            "answers": [lunch.answer]
+        ]
+        
+        Alamofire.request(serverURL + "/lunch", method: .post, parameters: parameters, encoding:
+            JSONEncoding.default, headers: nil).validate(statusCode: 200..<201).response(completionHandler: { response in
+                
+            })
     }
 }

@@ -31,10 +31,7 @@ class CRRectangleButton: CRButton {
         let height = titleLabel!.text!.heightWithConstrainedWidth(width: frame.width - 60, font: UIFont(name: "Edmondsans-Medium", size: 18)!) + 20
         for constraint in constraints {
             if constraint.firstAttribute == NSLayoutAttribute.height {
-                print("changing constant")
-                print(constraint.constant)
                 constraint.constant = height
-                print(constraint.constant)
             }
         }
 
