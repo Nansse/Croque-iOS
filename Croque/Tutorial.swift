@@ -27,7 +27,7 @@ class Tutorial: UIViewController {
             "password": "admin"
         ]
         Alamofire.request(serverURL + "/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: {response in
-            let json = JSON(response.result.value)
+            let json = JSON(response.result.value as Any)
             print(json)
         })
         

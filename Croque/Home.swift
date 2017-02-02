@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import RealmSwift
 
 class Home: UIViewController {
     
@@ -39,15 +38,15 @@ class Home: UIViewController {
     override func viewDidLoad() {
         
         
-        //Test realm
-        
-        let a = Test()
-        a.a = "Test 1"
-        
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(a)
-        }
+//        //Test realm
+//        
+//        let a = Test()
+//        a.a = "Test 1"
+//        
+//        let realm = try! Realm()
+//        try! realm.write {
+//            realm.add(a)
+//        }
         
         
         Home.shared = self
@@ -64,7 +63,7 @@ class Home: UIViewController {
         presentInContainer(viewController: closedVC)
         
         Alamofire.request("http://agepolysrv1.epfl.ch:8043").responseJSON(completionHandler: {response in
-            let json = JSON(response.result.value)
+            let json = JSON(response.result.value!)
             if json != "CLOSED" {
                 self.lunch = Lunch(json: json[0])
                 self.presentInContainer(viewController: self.openVC)

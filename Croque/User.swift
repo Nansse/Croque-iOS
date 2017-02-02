@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 class User {
     var id: Int = 0
@@ -44,10 +43,4 @@ class User {
 
 func == (lhs: User, rhs: User) -> Bool {
     return lhs.id == rhs.id
-}
-
-
-class Test: Object {
-    dynamic var a: String = ""
-    dynamic var b: Int = 123
 }
